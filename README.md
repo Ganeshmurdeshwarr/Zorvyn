@@ -6,7 +6,7 @@ A modern FinTech dashboard built with React that provides insights into user spe
 
 ## 🚀 Live Demo
 
-👉 [Add your deployed link here]
+👉 https://zorvyn-9ygpz4a6p-ganesh-devadigas-projects.vercel.app/
 
 ---
 
@@ -109,8 +109,8 @@ src/
 
 **Ganesh Murdeshwar**
 
-* GitHub: [Add your GitHub link]
-* LinkedIn: [Add your LinkedIn]
+* GitHub: https://github.com/Ganeshmurdeshwarr
+* LinkedIn: https://www.linkedin.com/in/ganesh-devadiga-664273294/
 
 ---
 
