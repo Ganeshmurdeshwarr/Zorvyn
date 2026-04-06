@@ -21,26 +21,26 @@ const AddForm = () => {
   };
 
   return (
-    <div className=" p-6 rounded-2xl shadow-lg bg-white/10 backdrop-blur-lg border border-white/10 w-[350px]">
+    <div className=" p-6 rounded-2xl shadow-lg bg-white/10 backdrop-blur-lg text-black border border-white/10 w-[350px]">
       <h2 className="text-xl font-semibold mb-4">Add Transaction</h2>
 
       <input
         type="date"
-        className="w-full border p-2 rounded mb-3"
+        className="w-full border p-2 rounded mb-3 bg-white text-black placeholder-gray-500"
         onChange={(e) => setFormData({ ...formData, date: e.target.value })}
       />
 
       <input
         type="text"
         placeholder="Category"
-        className="w-full border p-2 rounded mb-3"
+        className="w-full border p-2 rounded mb-3 bg-white text-black placeholder-gray-500"
         onChange={(e) => setFormData({ ...formData, category: e.target.value })}
       />
 
       <input
         type="number"
         placeholder="Amount"
-        className="w-full border p-2 rounded mb-4"
+        className="w-full border p-2 rounded mb-4 bg-white text-black placeholder-gray-500"
         onChange={(e) => setFormData({ ...formData, amount: e.target.value })}
       />
 
