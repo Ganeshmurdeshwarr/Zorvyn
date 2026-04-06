@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import Dashboard from './pages/Dashboard'
 import UserLayout from './pages/UserLayout'
+import Report from './pages/UserLayout'
 
 
 
@@ -14,7 +15,7 @@ function App() {
       <Routes>
         <Route path='/' element={<UserLayout/>} />
         <Route index element={<Dashboard/>}/>
-        <Route />
+        <Route path='/report' element={<Report/>} />
         <Route/>
       </Routes>
     </div>

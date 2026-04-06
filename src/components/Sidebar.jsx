@@ -10,9 +10,9 @@ import { NavLink } from "react-router-dom";
 
 const navOptions = [
   { icon: RxDashboard, name: "Dashboard", path: "/" },
-  { icon: TbReportSearch, name: "Report" },
-  { icon: AiOutlineTransaction, name: "Transactions" },
-  { icon: CiSearch, name: "Search" },
+  { icon: TbReportSearch, name: "Report", path:"/report" },
+  { icon: AiOutlineTransaction, name: "Transactions" ,path:"/" },
+  { icon: CiSearch, name: "Search", path:"/" },
 ];
 
 
