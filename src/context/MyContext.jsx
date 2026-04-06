@@ -10,7 +10,7 @@ const MyContext = createContext()
 const MyContextProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
   const [selectedUser, setSelectedUser] = useState(null);
-  const [role , setRole] = useState('user')
+  const [role , setRole] = useState('admin')
   const [modal, setModal] = useState({
     type: null,
     data: null,
