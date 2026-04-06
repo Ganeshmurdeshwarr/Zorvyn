@@ -9,14 +9,16 @@ import useMyContext from "../../context/useMyContext";
 const Main = () => {
   const {role , setRole} = useMyContext()
   return (
-    <div className="mt-14 sm:mt-20">
+    <div className="mt-18 sm:mt-20  no-scrollbar">
       {/* Role switchers */}
       <div className="flex justify-between items-center">
-        <h1 className="text-xl sm:text-2xl md:text-4xl font-bold  ">Dashboard</h1>
+        <h1 className="text-xl sm:text-2xl md:text-4xl font-bold  ">
+          Dashboard
+        </h1>
 
         <div className="flex justify-between items-center gap-2">
-          <p className="font-semibold sm:text-md">Role switcher</p>
-          <div className="flex bg-white rounded-4xl items-center   p-1">
+          <p className="font-semibold sm:text-md">Role Switcher</p>
+          <div className="flex bg-white rounded-4xl items-center text-black  p-1">
             <button
               onClick={() => setRole("admin")}
               className={` text-sm rounded-4xl py-2 px-3 ${role === "admin" ? "bg-green-200" : ""}`}
@@ -44,7 +46,7 @@ const Main = () => {
 
         {/* Right components (chat , transactions) */}
 
-        <div className=" w-full mt-10 md:mt-0">
+        <div className=" w-full mt-10 md:mt-0 bg-white/10 backdrop-blur-lg border border-white/10 rounded-2xl p-5 shadow-lg">
           <Chart />
           <Transaction />
         </div>

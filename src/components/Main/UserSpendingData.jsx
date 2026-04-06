@@ -7,29 +7,31 @@ PieChart,
   Pie,
   Cell,
 } from "recharts";
+import useMyContext from '../../context/useMyContext';
 
 const UserSpendingData = () => {
   // Chart data
 
-  const data = [
-    { name: "Shopping", value: 5000 },
-    { name: "Food", value: 2000 },
-    { name: "Travel", value: 3000 },
-    { name: "Rent", value: 3000 },
-    { name: "Movie", value: 3000 },
-  ];
+  const { selectedUser } = useMyContext();
+
+  const data =
+    selectedUser?.spendingByCategory?.map((item) => ({
+      name: item.category,
+      value: item.amount,
+    })) || [];
 
   //  Colors
   const color = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#F44236"];
 
   //  Highest Spending
-  const highest = data.reduce((max, item) =>
-    item.value > max.value ? item : max,
+  const highest = data.reduce(
+    (max, item) => (item.value > max.value ? item : max),
+    data[0] || { name: "", value: 0 },
   );
 
   // 🔹 Monthly Comparison (dummy values)
-  const currentMonth = 16000;
-  const lastMonth = 12000;
+  const currentMonth = selectedUser?.summary?.last30Days?.expense || 0;
+  const lastMonth = currentMonth * 0.8; // fake previous month (for now)
 
   const change = ((currentMonth - lastMonth) / lastMonth) * 100;
 
@@ -37,7 +39,7 @@ const UserSpendingData = () => {
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload?.length) {
       return (
-        <div className="bg-white shadow rounded text-sm p-4 border-0.5 border-black">
+        <div className="bg-white text-black shadow rounded text-sm p-4 border-0.5 border-black">
           <p className="">
             {payload[0].name}: ${payload[0].value}
           </p>
@@ -72,8 +74,10 @@ const UserSpendingData = () => {
     );
   };
 
+  if (!selectedUser) return <p>Loading...</p>;
+
   return (
-    <div className=" bg-white rounded-2xl p-4 mt-10">
+    <div className=" bg-white/10 backdrop-blur-lg border border-white/10 rounded-2xl hover:shadow-2xl shadow-lg p-4 mt-10 transition-transform hover:scale-[1.02]">
       <h1 className="py-4 text-2xl font-semibold ">Spending Breakdown</h1>
 
       {/* Chart */}

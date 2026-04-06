@@ -15,14 +15,14 @@ const Transaction = () => {
   
 
   return (
-    <div className="relative mt-10  bg-white p-4 rounded-xl shadow w-full">
+    <div className="relative mt-10   border border-white/10 rounded-2xl hover:shadow-2xl shadow-lg p-4 w-full transition-transform hover:scale-[1.02]">
       <div className="flex justify-between items-center ">
-        <h2 className="sm:text-2xl">Transactions</h2>
+        <h2 className="sm:text-2xl font-semibold text-xl">Transactions</h2>
 
-        <div className={` ${ role === "admin" ? "block " : "hidden"}`}>
+        <div className={` ${role === "admin" ? "block " : "hidden"}`}>
           <button
             onClick={() => setModal({ type: "add", data: null })}
-            className="bg-blue-200 rounded p-2 flex justify-between items-center gap-2"
+            className=" rounded p-2 flex justify-between items-center gap-2 bg-blue-600 hover:bg-blue-700 shadow-lg shadow-blue-500/30 text-white  "
           >
             <FaPlus />
             ADD
@@ -30,7 +30,7 @@ const Transaction = () => {
         </div>
 
         {modal.type && (
-          <div className="absolute inset-0 z-40 bg-black/40 flex items-center justify-center">
+          <div className="absolute inset-0 z-40  flex items-center justify-center  bg-black/50 rounded-lg backdrop-blur-md ">
             {/* Form Box */}
             <div className="bg-white p-6 rounded-xl w-[400px]">
               {modal.type === "add" && <AddForm />}
@@ -41,7 +41,7 @@ const Transaction = () => {
       </div>
 
       {/* Filter */}
-      <div className="flex gap-4 mt-6">
+      <div className="flex gap-4 mt-6 text-black">
         <h1>Filter</h1>
         <select
           value={filter.type}
@@ -67,7 +67,7 @@ const Transaction = () => {
         </select>
       </div>
 
-      <TransactionsTable  />
+      <TransactionsTable />
     </div>
   );
 }

@@ -21,7 +21,7 @@ const AddForm = () => {
   };
 
   return (
-    <div className="bg-white p-6 rounded-2xl w-[350px] shadow-lg">
+    <div className=" p-6 rounded-2xl shadow-lg bg-white/10 backdrop-blur-lg border border-white/10 w-[350px]">
       <h2 className="text-xl font-semibold mb-4">Add Transaction</h2>
 
       <input

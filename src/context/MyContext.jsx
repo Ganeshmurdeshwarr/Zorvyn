@@ -8,13 +8,15 @@ const MyContext = createContext()
 
 
 const MyContextProvider = ({ children }) => {
+  const [users, setUsers] = useState([]);
+  const [selectedUser, setSelectedUser] = useState(null);
   const [role , setRole] = useState('user')
-  const [data, setData] = useState(null);
-  const [transactions, setTransactions] = useState([]);
   const [modal, setModal] = useState({
     type: null,
     data: null,
   });
+
+  const transactions = selectedUser?.transactions || [];
 
   const [filter, setFilter] = useState({
     search: "",
@@ -29,16 +31,21 @@ const MyContextProvider = ({ children }) => {
       id: Date.now(), // simple unique id
     };
 
-    setTransactions((prev) => [txnWithId, ...prev]);
+    setSelectedUser((prev) => ({
+    ...prev,
+    transactions: [txnWithId, ...prev.transactions],
+  }))
   };
 
   // Edit 
   const editTransaction = (updatedTxn) => {
-    setTransactions((prev) =>
-      prev.map((txn) =>
-        txn.id === updatedTxn.id ? { ...txn, ...updatedTxn } : txn,
-      ),
-    );
+    setSelectedUser((prev) =>({
+    ...prev,
+    transactions: prev.transactions.map((txn) =>
+      txn.id === updatedTxn.id ? { ...txn, ...updatedTxn } : txn
+    ),
+  })
+    )
   };
 
 const filteredTransactions = useMemo(() => {
@@ -68,8 +75,8 @@ const filteredTransactions = useMemo(() => {
         setLoading(true);
         const res = await getUserData();
 
-        setData(res);
-        setTransactions(res.transactions);
+        setUsers(res);
+        setSelectedUser(res[0]);
       } catch (err) {
         setError(err);
       } finally {
@@ -82,12 +89,13 @@ const filteredTransactions = useMemo(() => {
 
   // ✅ VALUE (IMPORTANT)
   const value = {
+    users,
+    selectedUser,
+    setSelectedUser,
     role,
     setRole,
-    data,
     transactions,
     filteredTransactions,
-    setTransactions,
     addTransaction,
     editTransaction,
     filter,

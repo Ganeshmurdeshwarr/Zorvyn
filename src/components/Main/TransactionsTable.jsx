@@ -6,9 +6,9 @@ const TransactionsTable = () => {
   const { filteredTransactions , setModal , role} = useMyContext();
  
   return (
-    <div className="mt-6 max-h-60 overflow-y-auto">
+    <div className="mt-6 max-h-60 overflow-y-auto custom-scroll  border border-white/10 rounded-2xl ">
       <table className="w-full text-center text-sm  ">
-        <thead className="text-gray-500 border-b bg-gray-300 rounded-2xl sticky top-0  z-10">
+        <thead className="text-gray-900 bg-white border-b border-white/10  rounded-2xl sticky top-0  z-10">
           <tr>
             <th className="py-2">Category</th>
             <th>Date</th>
@@ -23,10 +23,10 @@ const TransactionsTable = () => {
             return (
               <tr
                 key={item.id}
-                className="border-b last:border-none hover:bg-gray-50 transition "
+                className="border-b last:border-none hover:bg-white/5 transition "
               >
                 <td className="py-3 font-medium">{item.category}</td>
-                <td className="text-gray-500">{item.date}</td>
+                <td className="text-gray-200">{item.date}</td>
 
                 <td>
                   {" "}
@@ -34,8 +34,8 @@ const TransactionsTable = () => {
                     className={`px-2 py-1 rounded-lg text-xs font-semibold
                     ${
                       item.type === "credit"
-                        ? "bg-green-100 text-green-600"
-                        : "bg-red-300 text-red-600"
+                        ? "bg-green-500/20 text-green-400"
+                        : "bg-red-500/20 text-red-400"
                     }`}
                   >
                     {item.type}
@@ -49,7 +49,7 @@ const TransactionsTable = () => {
                   <td>
                     <button
                       onClick={() => setModal({ type: "edit", data: item })}
-                      className="bg-blue-200 px-2 py-1 rounded text-xs"
+                      className="px-2 py-1 rounded text-xs bg-white/10 hover:bg-white/20 text-white "
                     >
                       Edit
                     </button>

@@ -9,29 +9,28 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import useMyContext from "../../context/useMyContext";
 
 const Chart = () => {
-  const data = [
-    { date: "Jan ", balance: 10000 },
-    { date: "Feb", balance: 12000 },
-    { date: "Mar", balance: 9000 },
-    { date: "Apr", balance: 1000 },
-    { date: "May", balance: 9000 },
-    { date: "Jun", balance: 5000 },
-    { date: "Jul", balance: 100000 },
-    { date: "Aug", balance: 9000 },
-    { date: "Oct", balance: 9000 },
-    { date: "Sep", balance: 9000 },
-    { date: "Nuv", balance: 9000 },
-    { date: "Des", balance: 9000 },
-  ];
 
+  const { selectedUser} = useMyContext()
+
+   const data =
+     selectedUser?.balanceHistory?.map((item) => ({
+       date: item.month,
+       balance: item.balance,
+     })) || [];
+
+     if (!selectedUser) return <p>Loading...</p>;
+     
   return (
-    <div className=" bg-white rounded-2xl p-4">
-      <h1 className="py-4 text-2xl font-semibold">Balance Trend</h1>
-      
+    <div className="border text-white mb-4 border-white/10 rounded-2xl hover:shadow-2xl shadow-lg p-4 transition-transform hover:scale-[1.02]">
+      <h1 className="py-4 text-lg font-semibold  ">
+        Balance Trend
+      </h1>
+
       <ResponsiveContainer width="100%" height={300}>
-        <LineChart  data={data} margin={{ right: 30 }}>
+        <LineChart data={data} margin={{ right: 30 }}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="date" />
           <YAxis />

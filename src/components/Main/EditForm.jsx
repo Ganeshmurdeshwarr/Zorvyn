@@ -29,7 +29,7 @@ const EditForm = ({ data }) => {
   };
 
   return (
-    <div className="bg-white p-6 rounded-2xl w-[350px] shadow-lg">
+    <div className=" p-6 rounded-2xl shadow-lg bg-white/10 backdrop-blur-lg border border-white/10  w-[350px]">
       <h2 className="text-xl font-semibold mb-4">Edit Transaction</h2>
 
       {/* Date */}
@@ -37,9 +37,7 @@ const EditForm = ({ data }) => {
         type="date"
         value={formData.date}
         className="w-full border p-2 rounded mb-3"
-        onChange={(e) =>
-          setFormData({ ...formData, date: e.target.value })
-        }
+        onChange={(e) => setFormData({ ...formData, date: e.target.value })}
       />
 
       {/* Category */}
@@ -48,9 +46,7 @@ const EditForm = ({ data }) => {
         placeholder="Category"
         value={formData.category}
         className="w-full border p-2 rounded mb-3"
-        onChange={(e) =>
-          setFormData({ ...formData, category: e.target.value })
-        }
+        onChange={(e) => setFormData({ ...formData, category: e.target.value })}
       />
 
       {/* Amount */}
@@ -59,9 +55,7 @@ const EditForm = ({ data }) => {
         placeholder="Amount"
         value={formData.amount}
         className="w-full border p-2 rounded mb-4"
-        onChange={(e) =>
-          setFormData({ ...formData, amount: e.target.value })
-        }
+        onChange={(e) => setFormData({ ...formData, amount: e.target.value })}
       />
 
       {/* Buttons */}

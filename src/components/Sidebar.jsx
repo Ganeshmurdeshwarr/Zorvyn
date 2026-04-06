@@ -23,7 +23,8 @@ const navOptions = [
 const Sidebar = ({ SidebarOpen, setSidebarOpen }) => {
   return (
     <div
-      className={`fixed top-0 left-0 z-20 bg-sky-200 min-h-screen w-64 sm:w-48 md:64 px-2 py-8 flex flex-col justify-between transition duration-300  ${SidebarOpen ? "translate-x-0" : "-translate-x-full"} sm:translate-x-0`}
+      className={`fixed top-0 left-0 z-50  min-h-screen w-64 sm:w-48 md:64 px-2 py-8 flex flex-col justify-between transition duration-300  ${SidebarOpen ? "translate-x-0" : "-translate-x-full"} sm:translate-x-0      bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white 
+      `}
     >
       {/* Top Section */}
 
