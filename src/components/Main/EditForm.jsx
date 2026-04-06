@@ -36,7 +36,7 @@ const EditForm = ({ data }) => {
       <input
         type="date"
         value={formData.date}
-        className="w-full border p-2 rounded mb-3"
+        className="w-full border p-2 rounded mb-3  bg-white text-black placeholder-gray-500"
         onChange={(e) => setFormData({ ...formData, date: e.target.value })}
       />
 
@@ -45,7 +45,7 @@ const EditForm = ({ data }) => {
         type="text"
         placeholder="Category"
         value={formData.category}
-        className="w-full border p-2 rounded mb-3"
+        className="w-full border p-2 rounded mb-3  bg-white text-black placeholder-gray-500"
         onChange={(e) => setFormData({ ...formData, category: e.target.value })}
       />
 
@@ -54,7 +54,7 @@ const EditForm = ({ data }) => {
         type="number"
         placeholder="Amount"
         value={formData.amount}
-        className="w-full border p-2 rounded mb-4"
+        className="w-full border p-2 rounded mb-4  bg-white text-black placeholder-gray-500"
         onChange={(e) => setFormData({ ...formData, amount: e.target.value })}
       />
 
