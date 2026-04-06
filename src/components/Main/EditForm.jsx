@@ -29,7 +29,7 @@ const EditForm = ({ data }) => {
   };
 
   return (
-    <div className=" p-6 rounded-2xl shadow-lg bg-white/10 backdrop-blur-lg border border-white/10  w-[350px]">
+    <div className=" p-6 rounded-2xl shadow-lg bg-white/10 backdrop-blur-lg border border-white/10 text-black  w-[350px]">
       <h2 className="text-xl font-semibold mb-4">Edit Transaction</h2>
 
       {/* Date */}

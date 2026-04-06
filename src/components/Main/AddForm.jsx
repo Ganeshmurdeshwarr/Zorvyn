@@ -21,12 +21,12 @@ const AddForm = () => {
   };
 
   return (
-    <div className=" p-6 rounded-2xl shadow-lg bg-white/10 backdrop-blur-lg text-black border border-white/10 w-[350px]">
+    <div className=" p-6 rounded-2xl shadow-lg  bg-white/10 backdrop-blur-lg text-black border border-white/10 w-[350px]">
       <h2 className="text-xl font-semibold mb-4">Add Transaction</h2>
 
       <input
         type="date"
-        className="w-full border p-2 rounded mb-3 bg-white text-black placeholder-gray-500"
+        className="w-full border p-2 rounded mb-3 bg-white text-black placeholder-gray-500 placeholder:text-black"
         onChange={(e) => setFormData({ ...formData, date: e.target.value })}
       />
 
