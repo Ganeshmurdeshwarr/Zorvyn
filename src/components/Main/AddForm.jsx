@@ -26,7 +26,7 @@ const AddForm = () => {
 
       <input
         type="date"
-        className="w-full border p-2 rounded mb-3 bg-white text-black placeholder-gray-500 placeholder:text-black"
+        className="w-full border p-2 rounded mb-3 bg-white text-black placeholder-gray-500 "
         onChange={(e) => setFormData({ ...formData, date: e.target.value })}
       />
 
